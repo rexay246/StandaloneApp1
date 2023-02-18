@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name : "
+                android:layout_weight='0'
+                android:layout_marginRight="8dp"
+                android:textSize="18dp"
+                android:id="@+id/tv_first_name"/>
+
+            <EditText
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight='1'
+                android:id="@+id/et_first_name"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Middle Name : "
+                android:layout_weight='0'
+                android:layout_marginRight="8dp"
+                android:textSize="18dp"
+                android:id="@+id/tv_middle_name"/>
+
+            <EditText
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight='1'
+                android:id="@+id/et_middle_name"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name : "
+                android:layout_weight='0'
+                android:layout_marginRight="8dp"
+                android:textSize="18dp"
+                android:id="@+id/tv_last_name"/>
+
+            <EditText
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight='1'
+                android:id="@+id/et_last_name"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/box"
+                android:id="@+id/iv_profile_picture" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Make a Profile Picture"
+                android:layout_gravity="center"
+                android:id="@+id/btn_profile_picture"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="submit"
+                android:id="@+id/btn_submit"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
