@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -21,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import java.io.File
 import java.io.FileOutputStream
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -121,7 +119,6 @@ class InputFragment : Fragment(), View.OnClickListener {
                 val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 try {
                     imageCapture.launch(camera)
-                    clickedProfile = true
                 } catch (ex: ActivityNotFoundException) {
                     Toast.makeText(activity, "Profile Picture cannot be taken. Try again", Toast.LENGTH_SHORT)
                         .show()
@@ -136,8 +133,11 @@ class InputFragment : Fragment(), View.OnClickListener {
             bm_profile_picture = extras!!["data"] as Bitmap?
 
             if (isExternalStorageWritable) {
-                iv_profile_picture!!.setImageBitmap(bm_profile_picture)
                 filePath = saveImage(bm_profile_picture)
+                if (bm_profile_picture != null) {
+                    clickedProfile = true
+                }
+                iv_profile_picture!!.setImageBitmap(bm_profile_picture)
             } else {
                 Toast.makeText(activity, "External storage not writable.", Toast.LENGTH_SHORT).show()
             }
@@ -157,7 +157,7 @@ class InputFragment : Fragment(), View.OnClickListener {
             finalBitmap!!.compress(Bitmap.CompressFormat.JPEG, 90, out)
             out.flush()
             out.close()
-            Toast.makeText(activity, "file saved!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Image Saved!", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             e.printStackTrace()
         }
