@@ -108,6 +108,9 @@ class InputFragment : Fragment(), View.OnClickListener {
                     if (clickedProfile == true) {
                         val nameList = arrayOf<String?>(str_first, str_last)
                         data_sender!!.sendData(nameList)
+                        et_first!!.text.clear()
+                        et_middle!!.text.clear()
+                        et_last!!.text.clear()
                     }
                     else {
                         Toast.makeText(activity, "Must Submit a Profile Picture", Toast.LENGTH_SHORT)

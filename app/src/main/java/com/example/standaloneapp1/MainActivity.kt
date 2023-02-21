@@ -41,16 +41,7 @@ class MainActivity : AppCompatActivity(), InputFragment.SendDataInterface {
             transaction.commit()
         }
         else if (checkDisplayFragment == true) {
-            val transaction = supportFragmentManager.beginTransaction()
-
-            val sendData = Bundle()
-            sendData.putString("first_name", first_name)
-            sendData.putString("last_name", last_name)
-            displayFragment!!.arguments = sendData
-
-            transaction.replace(R.id.fragment_holder, displayFragment!!, "display_fragment")
-            transaction.addToBackStack(null)
-            transaction.commit()
+            createDisplayFragment()
         }
     }
 
@@ -58,9 +49,15 @@ class MainActivity : AppCompatActivity(), InputFragment.SendDataInterface {
         first_name = data!![0]
         last_name = data[1]
 
-        val transaction = supportFragmentManager.beginTransaction()
-
         displayFragment = DisplayFragment()
+        createDisplayFragment()
+
+        checkDisplayFragment = true
+        checkInputFragment = false
+    }
+
+    fun createDisplayFragment() {
+        val transaction = supportFragmentManager.beginTransaction()
         val sendData = Bundle()
         sendData.putString("first_name", first_name)
         sendData.putString("last_name", last_name)
@@ -69,9 +66,6 @@ class MainActivity : AppCompatActivity(), InputFragment.SendDataInterface {
         transaction.replace(R.id.fragment_holder, displayFragment!!, "display_fragment")
         transaction.addToBackStack(null)
         transaction.commit()
-
-        checkDisplayFragment = true
-        checkInputFragment = false
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
