@@ -38,7 +38,7 @@ class InputFragment : Fragment(), View.OnClickListener {
     private var iv_profile_picture: ImageView? = null
     private var bm_profile_picture: Bitmap? = null
 
-    private var clickedProfile: Boolean? = null
+    private var clickedProfile: Boolean = false
 
     private var filePath: String? = null
 
@@ -172,7 +172,7 @@ class InputFragment : Fragment(), View.OnClickListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString("image_data", filePath)
-        outState.putBoolean("check_data", clickedProfile!!)
+        outState.putBoolean("check_data", clickedProfile)
         super.onSaveInstanceState(outState)
     }
 }
